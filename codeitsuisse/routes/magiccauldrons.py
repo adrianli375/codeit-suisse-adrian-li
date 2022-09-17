@@ -48,21 +48,21 @@ def get_amount_of_soup_1(soup_dict: dict) -> float:
     current_level = time // time_to_fill_up_one
 
     if row_no > current_level:
-        return '%.2f' % float(round(0, 2))
+        return "{:.2f}".format(float(round(0, 2)))
     elif row_no < current_level:
-        return '%.2f' % float(round(100, 2))
+        return "{:.2f}".format(float(round(100, 2)))
     else:
         amount_flown = flow_rate * (time - time_to_fill_up_one * (row_no+1) * row_no / 2)
         if col_no == 0 or col_no == 0:
             if row_no != 0:
-                return '%.2f' % float(round(1/(2*row_no) * amount_flown, 2))
+                return "{:.2f}".format(float(round(1/(2*row_no) * amount_flown, 2)))
             else:
-                return '%.2f' % float(round(amount_flown, 2))
+                return "{:.2f}".format(float(round(amount_flown, 2)))
         else:
             if row_no != 0:
-                return '%.2f' % float(round(2/(2*row_no) * amount_flown, 2))
+                return "{:.2f}".format(float(round(2/(2*row_no) * amount_flown, 2)))
             else:
-                return '%.2f' % float(round(amount_flown, 2))
+                return "{:.2f}".format(float(round(amount_flown, 2)))
 
 def get_time_2(soup_dict: dict) -> int:
     flow_rate = float(soup_dict['flow_rate'])
