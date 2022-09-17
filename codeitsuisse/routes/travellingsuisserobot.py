@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 @app.route('/travelling-suisse-robot', methods=['POST'])
 def evaluate_robot():
-    data = request.text
+    data = request.get_data()
     logging.info("data sent for evaluation {}".format(data))
     result = solve_robot(data)
     logging.info("My result :{}".format(json.dumps(result)))
