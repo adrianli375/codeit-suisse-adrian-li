@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 def evaluate_crypto():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    inputLists = [l for l in data]
+    inputLists = [l for l in list(data)]
     result = []
     evaluator = PriceEvaluator()
     for l in inputLists:
