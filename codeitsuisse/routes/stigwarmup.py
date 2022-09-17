@@ -26,6 +26,7 @@ def process_interviews(data: list) -> list:
     return output_list
 
 def get_p_q_value(interview: dict, max_rating: int) -> dict:
+    logging.info(interview.keys())
     lower = interview['lower']
     higher = interview['upper']
     if lower == 1:
