@@ -25,7 +25,7 @@ def process_interviews(interviews: list) -> list:
 
 def get_p_q_value(interview: dict) -> dict:
     lower = interview['questions'][0]['lower']
-    higher = interview['questions'][0]['upper']
+    # higher = interview['questions'][0]['upper']
     max_rating = interview['maxRating']
     if lower == 1:
         p = lower
