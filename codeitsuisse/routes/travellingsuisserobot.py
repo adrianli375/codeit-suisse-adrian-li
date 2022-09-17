@@ -17,8 +17,10 @@ def evaluate_robot():
     logging.info("My result :{}".format(json.dumps(result)))
     return result
 
-def solve_robot(map: str) -> str:
+def solve_robot(map) -> str:
     locations_dict = {}
+    logging.info(map)
+    logging.info(f'Type of input: {type(map)}')
     map_rows_initialize = map.split('\n')
     map_rows = []
     for i in range(len(map_rows_initialize)):
