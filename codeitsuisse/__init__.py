@@ -6,3 +6,4 @@ import codeitsuisse.routes.tickerstream2
 import codeitsuisse.routes.cryptocollapz
 import codeitsuisse.routes.calendardays
 import codeitsuisse.routes.magiccauldrons
+import codeitsuisse.routes.quordlekeyboard
