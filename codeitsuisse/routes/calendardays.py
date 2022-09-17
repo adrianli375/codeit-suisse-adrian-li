@@ -132,8 +132,8 @@ class YearDates:
                 month_output_str_list.append(',')
                 for string in month_output_str_list:
                     month_output_str += string
-                if output_str == 'mtwtfss':
-                    output_str = 'alldays'
+                if month_output_str == 'mtwtfss':
+                    month_output_str = 'alldays'
             output_str += month_output_str
         return output_str
     
