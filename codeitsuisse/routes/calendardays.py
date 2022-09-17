@@ -25,11 +25,12 @@ def get_data_json(numbers: list) -> dict:
     if len(numbers) > 1:
         days = sorted([day for day in numbers[1:] if day in range(1, year_dates.no_of_days+1)])
         part_1_string = year_dates.process_days(days)
+        part_2_list = generate_year_list(part_1_string)
     elif len(numbers) == 1:
         part_1_string = "       ,       ,       ,       ,       ,       ,       ,       ,       ,       ,       ,       ,"
         part_2_list = [2001]
-        output_dict['part1'] = part_1_string
-        output_dict['part2'] = part_2_list
+    output_dict['part1'] = part_1_string
+    output_dict['part2'] = part_2_list
     return output_dict
 
 def is_leap_year(year: int) -> bool:
@@ -165,5 +166,4 @@ def generate_year_list(generated_string: str) -> list:
 
 
 if __debug__:
-    # get_data_json([2022, 38, 39, 40, 42, 41])
-    generate_year_list('m      , t     ,weekend,       ,       ,       ,       ,       ,       ,       ,       ,       ,')
+    get_data_json([2053, 274, 57, 306, 330, 245, 213, 277, 5, 334, 304, 38, 246, 178, 247, 868, 153, 185, 248, 280, 123, 219, 241, 34, 181, 151, -86, 84, 310, 240, 788, 145, 219, 307, 302, 268, 96, 183, 976, 35, 269, 308, 154, 276, 157, 303, 994, 156, 124, 64, 308, 175, 64, 63, 38, 188, 276, 25, 154, 662, 332, 157, 34, 4, 300, 209, 298, 116, 123, -33, 4, 402, 303, 305, 85, 490, 244, 247, 331, 185, 153, 85, -41, 307, 958, 34, -33, 333, 55, 920, 123, 176, 309, 247, 279, 86, 156, 157, 961, 248, 183, 95, 309, 310, 36, -79, 56, 311, 65, 278, 211, 305, 245, 244, 96, 213, -41, 275, -17, 280, 306, 26, 273, 307, -17, 219, -23, 59, 299, 185, -68, 279, -32, 117, 63, 246, 188, 947, 206, 5, 278, 26, 65, 739, 124, 58, 95, 328, 274, 177, 275, 267, 37, 96, 155, 35, 36, 37, 155, -19, 329, 301, 272, 311, 277])
