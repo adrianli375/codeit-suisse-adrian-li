@@ -4,11 +4,11 @@ import math
 
 from flask import request, jsonify
 
-from codeitsuisse import app
+# from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-@app.route('/stig/warmup', methods=['POST'])
+# @app.route('/stig/warmup', methods=['POST'])
 def evaluate_stig_warmup():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
@@ -21,10 +21,11 @@ def process_interviews(interviews: list) -> list:
     for interview in interviews:
         accuracy = get_p_q_value(interview)
         output_list.append(accuracy)
+    return output_list
 
 def get_p_q_value(interview: dict) -> dict:
-    lower = interview['questions']['lower']
-    higher = interview['questions']['higher']
+    lower = interview['questions'][0]['lower']
+    higher = interview['questions'][0]['upper']
     max_rating = interview['maxRating']
     if lower == 1:
         p = lower
@@ -35,5 +36,14 @@ def get_p_q_value(interview: dict) -> dict:
     gcd = math.gcd(p, q)
     p /= gcd
     q /= gcd
-    return {'p': p, 'q': q}
+    return {'p': int(p), 'q': int(q)}
     
+if __debug__:
+    result = process_interviews([{
+   "questions": [{
+      "lower": 2,
+      "upper": 3
+   }],
+   "maxRating": 5
+}])
+    print(result)
