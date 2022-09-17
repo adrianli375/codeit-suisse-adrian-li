@@ -29,7 +29,7 @@ def solve_robot(map) -> str:
             map_rows.append(map_rows_initialize[i])
     row_index = 0
     for row in map_rows:
-        if datetime.now() - start_time > timedelta(seconds=5):
+        if datetime.now() - start_time > timedelta(seconds=6.7):
             return 'SSSSSS'
         col_index = 0
         for entry in row:
