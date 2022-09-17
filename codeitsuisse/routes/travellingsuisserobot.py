@@ -1,7 +1,6 @@
 import logging
 import json
 import math
-from tracemalloc import start
 
 from flask import request, jsonify
 
@@ -11,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 @app.route('/travelling-suisse-robot', methods=['POST'])
 def evaluate_robot():
-    data = request.get_data()
+    data = request.get_data().decode("utf-8") 
     logging.info("data sent for evaluation {}".format(data))
     result = solve_robot(data)
     logging.info("My result :{}".format(json.dumps(result)))
