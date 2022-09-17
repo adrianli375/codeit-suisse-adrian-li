@@ -49,5 +49,5 @@ def get_status(size: int, queries: dict) -> list:
             status = 'invalid'
             ip_address = None
         
-        output_list.append({status: ip_address})
+        output_list.append({'status': status, 'ipAddress': ip_address})
     return output_list
