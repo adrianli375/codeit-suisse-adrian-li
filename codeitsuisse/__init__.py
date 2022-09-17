@@ -11,3 +11,4 @@ import codeitsuisse.routes.stigwarmup
 import codeitsuisse.routes.dns_instantiate
 import codeitsuisse.routes.dns_simulator
 import codeitsuisse.routes.dns_test
+import codeitsuisse.routes.travellingsuisserobot
