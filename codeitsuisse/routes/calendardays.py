@@ -70,7 +70,7 @@ class YearDates:
         if mode == 'all':
             decider = [False for i in range(7)]
             for day in month_day_list:
-                decider[day % 7] == True
+                decider[day % 7] = True
                 if decider == [True for i in range(7)]:
                     return True
             return False
