@@ -14,12 +14,12 @@ def evaluate_robot():
     logging.info("data sent for evaluation {}".format(data))
     result = solve_robot(data)
     logging.info("My result :{}".format(json.dumps(result)))
-    return result
+    return result.encode("utf-8")
 
 def solve_robot(map) -> str:
     locations_dict = {}
-    logging.info(map)
-    logging.info(f'Type of input: {type(map)}')
+    # logging.info(map)
+    # logging.info(f'Type of input: {type(map)}')
     map_rows_initialize = map.split('\n')
     map_rows = []
     for i in range(len(map_rows_initialize)):
@@ -128,6 +128,7 @@ def solve_robot(map) -> str:
                 break
         current_coord = item_coord
     output = output_path.replace('RRR', 'L').replace('LLL', 'R').replace('RL', '').replace('LR', '')
+    logging.info(output)
     return output
             
 if __debug__:
