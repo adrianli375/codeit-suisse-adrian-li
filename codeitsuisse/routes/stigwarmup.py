@@ -4,11 +4,11 @@ import math
 
 from flask import request, jsonify
 
-# from codeitsuisse import app
+from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-# @app.route('/stig/warmup', methods=['POST'])
+@app.route('/stig/warmup', methods=['POST'])
 def evaluate_stig_warmup():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
