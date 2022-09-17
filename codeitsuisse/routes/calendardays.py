@@ -100,7 +100,7 @@ class YearDates:
         output_str = ''
         
         for i in range(12):
-            
+            month_output_str = ''
             month_day_list = [day for day in days if day in range(self.month_separating_dates[i], self.month_separating_dates[i+1])]
             month_weekend_list = self.months[i+1]['weekends']
             month_weekday_list = self.months[i+1]['weekdays']
@@ -122,7 +122,6 @@ class YearDates:
                     date_mapping[date] = days_of_the_week[self.first_day + date - 1]
                 
                 date_string_mapping = {0: 'm', 1: 't', 2: 'w', 3: 't', 4: 'f', 5: 's', 6: 's'}
-                month_output_str = ''
                 month_output_str_list = [' ' for i in range(7)]
 
                 for i in range(len(month_day_list)):
@@ -132,8 +131,8 @@ class YearDates:
                 month_output_str_list.append(',')
                 for string in month_output_str_list:
                     month_output_str += string
-                if month_output_str == 'mtwtfss':
-                    month_output_str = 'alldays'
+                if month_output_str == 'mtwtfss,':
+                    month_output_str = 'alldays,'
             output_str += month_output_str
         return output_str
     
