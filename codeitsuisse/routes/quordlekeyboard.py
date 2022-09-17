@@ -79,7 +79,9 @@ def get_part2_answer(output_string: str, unused_chars: str, numbers: list) -> st
         binary_rep = get_decimal_from_binary(binary_list)
         char = chr(binary_rep + 64)
         output += char
-    output += unused_chars
+    for char in unused_chars:
+        if char not in output:
+            output += unused_chars
     return output
 
 def get_decimal_from_binary(l: list) -> int:
