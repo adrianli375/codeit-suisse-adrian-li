@@ -9,7 +9,7 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 @app.route('/quordleKeyboard', methods=['POST'])
-def evaluate_crypto():
+def evaluate_keyboard():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     result = process_answer(data)
