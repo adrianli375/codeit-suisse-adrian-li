@@ -4,11 +4,11 @@ import math
 
 from flask import request, jsonify
 
-from codeitsuisse import app
+# from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-@app.route('/magiccauldrons', methods=['POST'])
+# @app.route('/magiccauldrons', methods=['POST'])
 def evaluate_cauldrons():
     data = request.get_json()
     inputData = data.get()
@@ -48,21 +48,21 @@ def get_amount_of_soup_1(soup_dict: dict) -> float:
     current_level = time // time_to_fill_up_one
 
     if row_no > current_level:
-        return float(round(0, 2))
+        return '%.2f' % float(round(0, 2))
     elif row_no < current_level:
-        return float(round(100, 2))
+        return '%.2f' % float(round(100, 2))
     else:
         amount_flown = flow_rate * (time - time_to_fill_up_one * (row_no+1) * row_no / 2)
         if col_no == 0 or col_no == 0:
             if row_no != 0:
-                return float(round(1/(2*row_no) * amount_flown, 2))
+                return '%.2f' % float(round(1/(2*row_no) * amount_flown, 2))
             else:
-                return float(round(amount_flown, 2))
+                return '%.2f' % float(round(amount_flown, 2))
         else:
             if row_no != 0:
-                return float(round(2/(2*row_no) * amount_flown, 2))
+                return '%.2f' % float(round(2/(2*row_no) * amount_flown, 2))
             else:
-                return float(round(amount_flown, 2))
+                return '%.2f' % float(round(amount_flown, 2))
 
 def get_time_2(soup_dict: dict) -> int:
     flow_rate = float(soup_dict['flow_rate'])
@@ -91,5 +91,58 @@ def round_float(f: float) -> int:
             return int_part + 1
 
 if __debug__:
-    amount = get_amount_of_soup_1({'flow_rate': 23, 'time': 1, 'row_number': 0, 'col_number': 0})
-    print
+    test = get_data_json([
+  {
+    "part1": {
+      "flow_rate": 20,
+      "time": 1,
+      "row_number": 0,
+      "col_number": 0
+    },
+    "part2": {
+      "flow_rate": 10,
+      "amount_of_soup": 10.00,
+      "row_number": 0,
+      "col_number": 0
+    },
+    "part3": {
+      "flow_rate": 30,
+      "time": 2,
+      "row_number": 0,
+      "col_number": 0
+    },
+    "part4": {
+      "flow_rate": 50,
+      "amount_of_soup": 100.00,
+      "row_number": 0,
+      "col_number": 0
+    }
+  },
+  {
+    "part1": {
+      "flow_rate": 23,
+      "time": 1,
+      "row_number": 0,
+      "col_number": 0
+    },
+    "part2": {
+      "flow_rate": 17,
+      "amount_of_soup": 34.00,
+      "row_number": 0,
+      "col_number": 0
+    },
+    "part3": {
+      "flow_rate": 36,
+      "time": 1,
+      "row_number": 0,
+      "col_number": 0
+    },
+    "part4": {
+      "flow_rate": 5,
+      "amount_of_soup": 20.00,
+      "row_number": 0,
+      "col_number": 0
+    }
+  }
+])
+    print(test)
