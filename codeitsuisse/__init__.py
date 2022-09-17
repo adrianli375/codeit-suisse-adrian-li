@@ -7,3 +7,4 @@ import codeitsuisse.routes.cryptocollapz
 import codeitsuisse.routes.calendardays
 import codeitsuisse.routes.magiccauldrons
 import codeitsuisse.routes.quordlekeyboard
+import codeitsuisse.routes.stigwarmup
