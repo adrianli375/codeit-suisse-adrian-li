@@ -5,11 +5,11 @@ from datetime import datetime, timedelta
 
 from flask import request, jsonify
 
-# from codeitsuisse import app
+from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-# @app.route('/calendarDays', methods=['POST'])
+@app.route('/calendarDays', methods=['POST'])
 def evaluate_calendar():
     data = request.get_json()
     inputData = data.get('numbers')
