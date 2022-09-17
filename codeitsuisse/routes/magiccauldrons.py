@@ -4,11 +4,11 @@ import math
 
 from flask import request, jsonify
 
-# from codeitsuisse import app
+from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-# @app.route('/magiccauldrons', methods=['POST'])
+@app.route('/magiccauldrons', methods=['POST'])
 def evaluate_cauldrons():
     data = request.get_json()
     inputData = data.get()
