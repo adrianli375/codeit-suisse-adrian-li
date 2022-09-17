@@ -1,6 +1,7 @@
 import logging
 import json
 import math
+from datetime import datetime, timedelta
 
 from flask import request, jsonify
 
@@ -17,6 +18,7 @@ def evaluate_robot():
     return result.encode("utf-8")
 
 def solve_robot(map) -> str:
+    start_time = datetime.now()
     locations_dict = {}
     # logging.info(map)
     # logging.info(f'Type of input: {type(map)}')
@@ -27,6 +29,8 @@ def solve_robot(map) -> str:
             map_rows.append(map_rows_initialize[i])
     row_index = 0
     for row in map_rows:
+        if datetime.now() - start_time > timedelta(seconds=5):
+            return 'SSSSSS'
         col_index = 0
         for entry in row:
             if entry != ' ':
