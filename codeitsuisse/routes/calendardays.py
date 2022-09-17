@@ -1,7 +1,6 @@
-from calendar import month
 import logging
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from flask import request, jsonify
 
