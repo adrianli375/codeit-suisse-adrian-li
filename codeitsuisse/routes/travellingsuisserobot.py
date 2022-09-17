@@ -5,11 +5,11 @@ from tracemalloc import start
 
 from flask import request, jsonify
 
-# from codeitsuisse import app
+from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-# @app.route('/travelling-suisse-robot', methods=['POST'])
+@app.route('/travelling-suisse-robot', methods=['POST'])
 def evaluate_robot():
     data = request.text
     logging.info("data sent for evaluation {}".format(data))
