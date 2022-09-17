@@ -19,7 +19,7 @@ def evaluate_crypto():
         evaluator.routine = []
         outputList = evaluator.find_highest_price_list(l)
         result.append(outputList)
-    logging.info("My result :{}".format(result))
+    logging.info("My result :{}".format(json.dumps(result)))
     return json.dumps(result)
 
 class PriceEvaluator:
