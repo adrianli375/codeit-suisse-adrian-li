@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 @app.route('/magiccauldrons', methods=['POST'])
 def evaluate_cauldrons():
     data = request.get_json()
-    inputData = data.get()
+    inputData = data
     logging.info("data sent for evaluation {}".format(inputData))
     result = get_data_json(inputData)
     logging.info("My result :{}".format(result))
