@@ -4,11 +4,11 @@ from datetime import datetime
 
 from flask import request, jsonify
 
-from codeitsuisse import app
+# from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-@app.route('/calendarDays', methods=['POST'])
+# @app.route('/calendarDays', methods=['POST'])
 def evaluate_calendar():
     data = request.get_json()
     inputData = data.get('numbers')
@@ -145,10 +145,15 @@ def generate_year_list(generated_string: str) -> list:
     for i in range(12):
         current_month = i + 1
         month_str = months_requirement[i]
-        if month_str == 'alldays' or month_str == 'weekday':
+        if month_str == 'alldays':
             for j in range(5):
                 output_list.append(year_date_derived.months[current_month]['weekdays'][j])
-        elif month_str == 'alldays' or month_str == 'weekend':
+            for j in range(2):
+                output_list.append(year_date_derived.months[current_month]['weekends'][j])
+        elif month_str == 'weekday':
+            for j in range(5):
+                output_list.append(year_date_derived.months[current_month]['weekdays'][j])
+        elif month_str == 'weekend':
             for j in range(2):
                 output_list.append(year_date_derived.months[current_month]['weekends'][j])
         else:
@@ -166,4 +171,6 @@ def generate_year_list(generated_string: str) -> list:
 
 
 if __debug__:
-    get_data_json([2023, 33, 34, 35, 36, 37, 38, 39, 47])
+    days = [i for i in range(1, 366)]
+    days.insert(0, 2023)
+    get_data_json(days)
