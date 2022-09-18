@@ -35,7 +35,7 @@ def get_status(size: int, queries: dict) -> list:
             status = 'cache miss'
             ip_address = lookup_table[query]
             if len(cache) == size:
-                last_time = min(cache_recent_query.keys())
+                last_time = min([q for q in cache_recent_query.keys() if cache_recent_query[q] in query])
                 least_visited_query = cache_recent_query[last_time]
                 logging.info(f'recent queries: {cache_recent_query}')
                 logging.info(f'cache: {cache}')
