@@ -47,7 +47,7 @@ def get_status(size: int, queries: dict) -> list:
             status = 'cache hit'
             ip_address = lookup_table[query]
             cache[query] = lookup_table[query]
-            for i in range(1, len(cache_recent_query)+1):
+            for i in cache_recent_query.keys():
                 if cache_recent_query[i] == query:
                     del cache_recent_query[i]
                     break

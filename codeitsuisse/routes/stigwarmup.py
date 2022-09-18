@@ -44,7 +44,16 @@ if __debug__:
    "questions": [{
       "lower": 2,
       "upper": 3
-   }],
+   }, 
+   {
+      "lower": 3,
+      "upper": 4,
+   }, 
+   {
+      "lower": 4,
+      "upper": 5
+   }
+   ],
    "maxRating": 5
 }])
     print(result)
