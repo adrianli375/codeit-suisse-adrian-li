@@ -42,6 +42,9 @@ def get_status(size: int, queries: dict) -> list:
                 logging.info(f'deleting {least_visited_query}')
                 del cache[least_visited_query]
             cache[query] = lookup_table[query]
+            if query in cache_recent_query.values():
+                min_timestamp = [t for t in cache_recent_query.keys() if cache_recent_query[t] == query][0]
+                del cache_recent_query[min_timestamp]
             cache_recent_query[time] = query
         elif query in cache and query in lookup_table:
             status = 'cache hit'
