@@ -38,6 +38,7 @@ def get_status(size: int, queries: dict) -> list:
                 last_time = min(cache_recent_query.keys())
                 least_visited_query = cache_recent_query[last_time]
                 logging.info(f'recent queries: {cache_recent_query}')
+                logging.info(f'cache: {cache}')
                 logging.info(f'deleting {least_visited_query}')
                 del cache[least_visited_query]
             cache[query] = lookup_table[query]
