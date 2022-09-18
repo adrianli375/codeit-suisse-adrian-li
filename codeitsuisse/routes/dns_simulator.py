@@ -50,4 +50,5 @@ def get_status(size: int, queries: dict) -> list:
             ip_address = None
         
         output_list.append({'status': status, 'ipAddress': ip_address})
+        time += 1
     return output_list
